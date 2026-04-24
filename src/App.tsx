@@ -85,29 +85,7 @@ export default function App() {
 
       <div className="relative z-10">
         {/* FRAME 1: IMPACTO INICIAL */}
-        <Frame className="relative overflow-hidden">
-          {/* Hero Animated Background Elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            <motion.div 
-              animate={{ 
-                scale: [1, 1.2, 1],
-                rotate: [0, 90, 0],
-                opacity: [0.05, 0.1, 0.05]
-              }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="absolute -top-1/4 -left-1/4 w-full h-full bg-brand-green rounded-full blur-[150px]"
-            />
-            <motion.div 
-              animate={{ 
-                scale: [1.2, 1, 1.2],
-                rotate: [0, -90, 0],
-                opacity: [0.03, 0.08, 0.03]
-              }}
-              transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-              className="absolute -bottom-1/4 -right-1/4 w-full h-full bg-brand-green rounded-full blur-[150px]"
-            />
-          </div>
-
+        <Frame>
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
