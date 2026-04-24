@@ -65,7 +65,7 @@ export default function App() {
           </div>
           <span className="font-bold tracking-tighter text-xl">CHURRASCARIA<span className="text-brand-green">OS</span></span>
         </div>
-        <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/40">
+        <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/70">
           <span className="text-brand-green cursor-pointer">Início</span>
           <span className="hover:text-white cursor-pointer transition-colors">Sistema</span>
           <span className="hover:text-white cursor-pointer transition-colors">Benefícios</span>
@@ -96,7 +96,7 @@ export default function App() {
             <h1 className="text-5xl md:text-8xl font-black leading-[1] mb-8 tracking-tighter">
               Transformando sua churrascaria em uma <span className="text-gradient">máquina digital de vendas.</span>
             </h1>
-            <p className="text-white/40 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
+            <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
               Venda todos os dias, mesmo quando as portas estão fechadas. Controle total de pedidos, estoque e faturamento em tempo real.
             </p>
             <motion.div 
@@ -127,14 +127,14 @@ export default function App() {
               >
                 <item.icon className="w-12 h-12 text-brand-green mb-6 group-hover:scale-110 transition-transform" />
                 <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                <p className="text-white/50">{item.desc}</p>
+                <p className="text-white/80">{item.desc}</p>
               </motion.div>
             ))}
           </div>
           <motion.h2 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-white/20 mt-20 text-center uppercase tracking-widest"
+            className="text-white/60 mt-20 text-center uppercase tracking-widest"
           >
              Isso acontece hoje com você?
           </motion.h2>
@@ -143,9 +143,10 @@ export default function App() {
         {/* FRAME 3: A VIRADA */}
         <Frame>
           <motion.div
-            initial={{ opacity: 0, filter: "blur(20px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, filter: "blur(20px)", y: 50 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="text-center"
           >
             <Zap className="w-16 h-16 text-brand-green mx-auto mb-8 animate-pulse" />
@@ -186,6 +187,8 @@ export default function App() {
                   {[
                     "Catálogo digital interativo",
                     "Pedidos 100% online via sistema inteligente",
+                    "Notificações instantâneas de novos pedidos",
+                    "Avisos automáticos quando o pedido está pronto",
                     "Pagamento integrado e seguro"
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-3 text-white/70">
@@ -232,18 +235,18 @@ export default function App() {
                 >
                   Você controla tudo em <span className="text-brand-green">tempo real</span>
                 </motion.h2>
-                <p className="text-white/50 text-lg">
+                <p className="text-white/80 text-lg">
                   Tome decisões baseadas em dados reais, não em palpites. 
                   Veja exatamente quanto está lucrando a qualquer momento.
                 </p>
                 <div className="mt-8 grid grid-cols-2 gap-4">
                    <div className="glass p-4 rounded-xl">
                       <div className="text-brand-green text-2xl font-bold">R$ 142k</div>
-                      <div className="text-xs text-white/50 uppercase">Mensal</div>
+                      <div className="text-xs text-white/70 uppercase">Mensal</div>
                    </div>
                    <div className="glass p-4 rounded-xl">
                       <div className="text-brand-green text-2xl font-bold">+18%</div>
-                      <div className="text-xs text-white/50 uppercase">Crescimento</div>
+                      <div className="text-xs text-white/70 uppercase">Crescimento</div>
                    </div>
                 </div>
               </div>
@@ -255,7 +258,7 @@ export default function App() {
         {/* FRAME 8: ESTOQUE INTELIGENTE */}
         <Frame>
           <div className="text-center max-w-4xl">
-            <Package className="w-16 h-16 text-white/20 mx-auto mb-8" />
+            <Package className="w-16 h-16 text-white/60 mx-auto mb-8" />
             <h2 className="text-4xl font-bold mb-8 italic">
               "Nunca mais fique sem produto sem perceber."
             </h2>
@@ -278,8 +281,10 @@ export default function App() {
         {/* FRAME 9: DIFERENCIAL */}
         <Frame className="bg-gradient-to-t from-brand-green/10 to-transparent">
           <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 100, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: false, amount: 0.4 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="text-center max-w-5xl"
           >
             <h2 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter">
@@ -322,7 +327,7 @@ export default function App() {
                 Oportunidade Limitada
              </div>
              <h2 className="text-4xl md:text-6xl font-bold mb-8">Sistema em fase inicial</h2>
-             <p className="text-xl text-white/50 max-w-2xl mx-auto mb-12">
+             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
                Estamos selecionando as primeiras churrascarias parceiras para condições exclusivas de implantação.
              </p>
           </div>
@@ -356,9 +361,9 @@ export default function App() {
         {/* FOOTER */}
         <footer className="h-auto md:h-32 bg-brand-black border-t border-brand-dark px-6 md:px-12 py-8 md:py-0 flex flex-col md:flex-row items-center justify-between z-10 relative">
           <div className="flex items-center gap-4 mb-6 md:mb-0">
-            <div className="w-12 h-12 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-xs font-bold text-brand-green">JL</div>
+            <div className="w-12 h-12 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-xs font-bold text-brand-green text-glow">JL</div>
             <div>
-              <p className="text-[10px] uppercase font-bold text-white/30">Desenvolvido por</p>
+              <p className="text-[10px] uppercase font-bold text-white/60">Desenvolvido por</p>
               <p className="text-base font-bold text-white">João Layon</p>
             </div>
           </div>
@@ -366,9 +371,9 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="text-center md:text-right">
               <p className="text-xs font-bold uppercase text-white tracking-widest">Condição Especial Ativa</p>
-              <p className="text-[10px] text-white/40">Fase inicial para novos parceiros • 2026</p>
+              <p className="text-[10px] text-white/70">Fase inicial para novos parceiros • 2026</p>
             </div>
-            <div className="flex gap-4 text-[10px] font-bold uppercase text-white/20">
+            <div className="flex gap-4 text-[10px] font-bold uppercase text-white/60">
                <span>Privacidade</span>
                <span>Termos</span>
             </div>
