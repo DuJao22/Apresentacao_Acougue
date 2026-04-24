@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-black: #0B0B0B;
+  --color-brand-green: #00FF88;
+  --color-brand-dark: #1A1A1A;
+  --color-border-subtle: #333333;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-black text-white antialiased selection:bg-brand-green selection:text-brand-black overflow-x-hidden;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-extrabold;
+    font-family: var(--font-display);
+  }
+}
+
+.glass {
+  background: #1A1A1A;
+  border: 1px solid #333;
+}
+
+.glass-gradient {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, transparent 100%);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-white;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.green-glow {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+}
